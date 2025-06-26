@@ -10,7 +10,6 @@
 
 - **HTML5**
 - **CSS3**
-- **JavaScript (Vanilla JS)**
 
 ---
 
@@ -31,17 +30,16 @@ A landing page estará disponível em:
 - [Vercel](https://realcarservice.vercel.app) (exemplo)
 - ou [GitHub Pages](https://abdieldeathayde.github.io/RealCarService)
 
-*(Links serão atualizados após o deploy)*
-
 ---
 
 ## 🧭 Como rodar localmente
 
 1. Clone o repositório:
+
    ```bash
    git clone https://github.com/abdieldeathayde/RealCarService.git
    cd RealCarService
-````
+   ```
 
 2. Abra o arquivo `index.html` com seu navegador ou usando uma extensão como "Live Server" no VS Code.
 
@@ -51,9 +49,9 @@ A landing page estará disponível em:
 
 O formulário da página envia mensagens via:
 
-* 📱 WhatsApp: direciona o usuário com a mensagem pré-preenchida
-* 📧 E-mail: link para envio com cliente de e-mail padrão
-* 📝 Área de descrição dos problemas do veículo
+- 📱 WhatsApp: direciona o usuário com a mensagem pré-preenchida
+- 📧 E-mail: link para envio com cliente de e-mail padrão
+- 📝 Área de descrição dos problemas do veículo
 
 ---
 
@@ -66,17 +64,17 @@ Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) par
 ## 👨‍💻 Autor
 
 **Abdiel de Athayde**
-Desenvolvedor Frontend em formação | Foco em soluções web práticas e acessíveis
+Desenvolvedor Fullstack em formação | Foco em soluções web práticas e acessíveis
 [LinkedIn](https://www.linkedin.com/in/abdieldeathayde) • [GitHub](https://github.com/abdieldeathayde)
 
 ---
 
 ## 🎯 Próximos Passos
 
-* [ ] Melhorias no design responsivo
-* [ ] Validação de formulário
-* [ ] Deploy no GitHub Pages e Vercel
-* [ ] Testes manuais em dispositivos móveis
+- [ ] Melhorias no design responsivo
+- [ ] Validação de formulário
+- [ ] Deploy no GitHub Pages e Vercel
+- [ ] Testes manuais em dispositivos móveis
 
 ---
 
