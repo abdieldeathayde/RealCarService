@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,18 @@
     <link rel="stylesheet" href="style.css"></style>
     
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100">
+    <!-- Seção com imagem de fundo e texto -->
+  <section class="relative h-96 bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1200x400');">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      <h1 class="text-white text-3xl md:text-5xl font-bold text-center px-4">Bem-vindo ao nosso site</h1>
+    </div>
+  </section>
+
+ 
+
+
+
 <!-- Header/Navigation -->
 <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -24,18 +35,35 @@
             <a href="#contact" class="text-gray-800 hover:text-red-600 font-medium">Contato</a>
         </nav>
         <div class="md:hidden">
-            <button id="menu-btn" class="text-gray-800 focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
+            <i class="fas fa-bars text-2xl"></i>
+                
         </div>
+
+        
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
-        <a href="#home" class="block py-2 text-gray-800 hover:text-red-600">Início</a>
-        <a href="#services" class="block py-2 text-gray-800 hover:text-red-600">Serviços</a>
-        <a href="#about" class="block py-2 text-gray-800 hover:text-red-600">Sobre Nós</a>
-        <a href="#contact" class="block py-2 text-gray-800 hover:text-red-600">Contato</a>
-    </div>
+
+ <!-- Navbar -->
+  <nav class="bg-white p-4 flex items-center justify-between shadow-md">
+    <div class="text-xl font-bold text-gray-800">Meu Site</div>
+
+    <!-- Botão do menu para celular -->
+    <button id="menu-toggle" class="md:hidden text-gray-800">
+      <!-- Ícone hamburguer -->
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+    <a href="#home" class="block py-2 text-gray-800 hover:text-red-600">Início</a>
+    <a href="#services" class="block py-2 text-gray-800 hover:text-red-600">Serviços</a>
+    <a href="#about" class="block py-2 text-gray-800 hover:text-red-600">Sobre Nós</a>
+    <a href="#contact" class="block py-2 text-gray-800 hover:text-red-600">Contato</a>
+  </div>
 </header>
 
 <!-- Hero Section -->
@@ -303,6 +331,7 @@
                             <a href="#" class="text-red-600 hover:text-red-700 text-2xl"><i class="fab fa-linkedin"></i></a>
                             <a href="#" class="text-red-600 hover:text-red-700 text-2xl"><i class="fab fa-youtube"></i></a>
                         </div>
+
 <div class="h-96 w-full">
     <iframe
         src="https://www.google.com/maps/embed?pb=!4v1750723024282!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQ2J2TnF0Q3c.!2m2!1d-26.90272102239349!2d-49.03636989734218!3f359.90892734162475!4f8.282171338532976!5f0.7820865974627469"
@@ -316,6 +345,29 @@
         </div>
     </div>
 </section>
+
+  <!-- Navbar -->
+  <nav class="bg-white p-4 flex items-center justify-between shadow-md">
+    <div class="text-xl font-bold text-gray-800">Meu Site</div>
+
+    <!-- Botão do menu para celular -->
+    <button id="menu-toggle" class="md:hidden text-gray-800">
+      <!-- Ícone hamburguer -->
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+    <a href="#home" class="block py-2 text-gray-800 hover:text-red-600">Início</a>
+    <a href="#services" class="block py-2 text-gray-800 hover:text-red-600">Serviços</a>
+    <a href="#about" class="block py-2 text-gray-800 hover:text-red-600">Sobre Nós</a>
+    <a href="#contact" class="block py-2 text-gray-800 hover:text-red-600">Contato</a>
+  </div>
 
 
 
@@ -371,7 +423,7 @@
 </footer>
 
 <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/+5547988979901" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg floating-button">
+<a href="https://wa.me/+5547988979901" class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg floating-button">
     <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -380,6 +432,15 @@
     <i class="fas fa-arrow-up"></i>
 </a>
 
-<script src= <"script.js"> </script>
+<!-- JavaScript para abrir/fechar menu -->
+  <script>
+    const toggleButton = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggleButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  
 </body>
 </html>
