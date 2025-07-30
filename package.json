@@ -1,0 +1,26 @@
+{
+  "name": "realcarservice",
+  "version": "1.0.0",
+  "description": "**RealCarService** é uma landing page desenvolvida para uma oficina mecânica, com o objetivo de apresentar os serviços oferecidos, informações da empresa e formas de contato. O site é responsivo, moderno e intuitivo, permitindo que os clientes entrem em contato diretamente via WhatsApp ou e-mail, além de deixarem descrições dos problemas em seus veículos.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdieldeathayde/RealCarService.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdieldeathayde/RealCarService/issues"
+  },
+  "homepage": "https://github.com/abdieldeathayde/RealCarService#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.2"
+  }
+}
