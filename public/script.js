@@ -55,7 +55,7 @@ form.addEventListener('submit', async (e) => {
   };
 
   try {
-    const resposta = await fetch('/api/servicos/submit-form', {
+    const resposta = await fetch('http://127.0.0.1:3000/api/servicos/submit-form', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(dados)
@@ -70,6 +70,6 @@ form.addEventListener('submit', async (e) => {
     }
   } catch (err) {
     alert('Erro ao enviar o formulário. Tente novamente.');
-    console.error(err);
+    //console.error(err);
   }
 });
