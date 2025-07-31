@@ -32,6 +32,6 @@ app.get('/api/servicos/:id', (req, res) => {
 });
 
 // Inicialização do servidor
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+app.listen(port, '127.0.0.1', () => {
+  console.log(`Servidor rodando em http://127.0.0.1:${port}`);
 });
