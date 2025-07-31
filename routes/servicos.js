@@ -1,18 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../config/db'); // Verifique se esse caminho está correto
+const db = require('../config/db'); // Certifique-se de que este caminho está correto
 
-// POST /api/servicos - Salvar dados do formulário
+// POST /api/servicos/submit-form - Salvar dados do formulário
 router.post('/submit-form', (req, res) => {
-    const { nome, email, telefone, mensagem, servico } = req.body;
-    console.log('Dados recebidos no backend:', req.body);
+    const { nome, email, telefone, servico, mensagem } = req.body;
 
-    if (!nome || !email || !telefone || !mensagem || !servico) {
+    if (!nome || !email || !telefone || !servico || !mensagem) {
         return res.status(400).json({ erro: 'Todos os campos são obrigatórios.' });
     }
 
-    const query = 'INSERT INTO servicos (nome, email, telefone, mensagem, servico) VALUES (?, ?, ?, ?, ?)';
-    const values = [nome, email, telefone, mensagem, servico];
+    const query = 'INSERT INTO servicos (nome, email, telefone, servico, mensagem) VALUES (?, ?, ?, ?, ?)';
+    const values = [nome, email, telefone, servico, mensagem];
 
     db.query(query, values, (err, result) => {
         if (err) {
@@ -53,18 +52,18 @@ router.delete('/:id', (req, res) => {
 // PUT /api/servicos/:id - Atualizar registro por ID
 router.put('/:id', (req, res) => {
     const { id } = req.params;
-    const {nome, email, telefone, mensagem, servico } = req.body;
+    const { nome, email, telefone, servico, mensagem } = req.body;
 
-    if (!nome || !email || !telefone || !mensagem || !servico) {
+    if (!nome || !email || !telefone || !servico || !mensagem) {
         return res.status(400).json({ erro: 'Todos os campos são obrigatórios para atualização.' });
     }
 
     const query = `
         UPDATE servicos 
-        SET nome = ?, email = ?, telefone = ?, mensagem = ?, servico = ?
+        SET nome = ?, email = ?, telefone = ?, servico = ?, mensagem = ?
         WHERE id = ?
     `;
-    const values = [id, nome, email, telefone, mensagem, servico;
+    const values = [nome, email, telefone, servico, mensagem, id];
 
     db.query(query, values, (error) => {
         if (error) {

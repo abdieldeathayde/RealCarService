@@ -40,51 +40,43 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission com envio para o backend
-const form = document.getElementById('form-contato');
+// Envio do formulário principal para o backend
+const form = document.getElementById('formulario');
 
-form?.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const nome = document.getElementById('name').value.trim();
-    const telefone = document.getElementById('phone').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const mensagem = document.getElementById('message').value.trim();
-
-    const dados = {
-        nome,
-        telefone,
-        email,
-        mensagem
-    };
-
-    // Aqui você pode enviar os dados para o backend usando fetch ou AJAX
-    // Exemplo:
-    // const response = await fetch('/api/contato', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(dados)
-    // });
-    // const result = await response.json();
-    // alert(result.message);
-
-});
-
-// Outro formulário (se necessário)
-document.getElementById('formulario')?.addEventListener('submit', async function(e) {
+form?.addEventListener('submit', async function(e) {
   e.preventDefault();
-  const dados = {
-    nome: document.getElementById('nome').value,
-    email: document.getElementById('email').value,
-    telefone: document.getElementById('telefone').value,
-    servico: document.getElementById('servico').value,
-    mensagem: document.getElementById('mensagem').value
-  };
-  const resposta = await fetch('/servicos/submit-form', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(dados)
-  });
-  const resultado = await resposta.json();
-  alert(resultado.mensagem || resultado.erro);
+  // Coleta e validação dos campos obrigatórios
+  const nome = document.getElementById('nome')?.value.trim();
+  const email = document.getElementById('email')?.value.trim();
+  const telefone = document.getElementById('telefone')?.value.trim();
+  const servico = document.getElementById('servico')?.value.trim();
+  const mensagem = document.getElementById('mensagem')?.value.trim();
+
+  if (!nome || !email || !telefone || !servico || !mensagem) {
+    alert('Preencha todos os campos obrigatórios!');
+    return;
+  }
+
+  const dados = { nome, email, telefone, servico, mensagem };
+
+  try {
+    const resposta = await fetch('/api/servicos/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+    });
+
+    const resultado = await resposta.json();
+
+    if (resposta.ok) {
+        alert(resultado.mensagem || 'Dados enviados com sucesso!');
+        form.reset();
+    } else {
+        alert(resultado.erro || 'Erro ao enviar os dados.');
+    }
+    } catch (err) {
+    console.error('Erro no envio:', err);
+    alert('Erro ao enviar o formulário. Tente novamente.');
+    }
+
 });
