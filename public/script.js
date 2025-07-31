@@ -40,43 +40,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Envio do formulário principal para o backend
+// Form submission com envio para o backend
 const form = document.getElementById('formulario');
 
-form?.addEventListener('submit', async function(e) {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  // Coleta e validação dos campos obrigatórios
-  const nome = document.getElementById('nome')?.value.trim();
-  const email = document.getElementById('email')?.value.trim();
-  const telefone = document.getElementById('telefone')?.value.trim();
-  const servico = document.getElementById('servico')?.value.trim();
-  const mensagem = document.getElementById('mensagem')?.value.trim();
 
-  if (!nome || !email || !telefone || !servico || !mensagem) {
-    alert('Preencha todos os campos obrigatórios!');
-    return;
-  }
-
-  const dados = { nome, email, telefone, servico, mensagem };
+  const dados = {
+    nome: form.nome.value,
+    email: form.email.value,
+    telefone: form.telefone.value,
+    servico: form.servico.value,
+    mensagem: form.mensagem.value
+  };
 
   try {
     const resposta = await fetch('/api/servicos/submit-form', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dados)
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dados)
     });
 
     const resultado = await resposta.json();
 
-    if (resposta.ok) {
-        alert(resultado.mensagem || 'Dados enviados com sucesso!');
-        form.reset();
-    } else {
-        alert(resultado.erro || 'Erro ao enviar os dados.');
-    }
-    } catch (err) {
-    console.error('Erro no envio:', err);
-    alert('Erro ao enviar o formulário. Tente novamente.');
-    }
+    alert(resultado.mensagem || resultado.erro);
 
+    if (resposta.ok) {
+      form.reset();
+    }
+  } catch (err) {
+    alert('Erro ao enviar o formulário. Tente novamente.');
+    console.error(err);
+  }
 });
