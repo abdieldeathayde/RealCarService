@@ -59,20 +59,12 @@ form?.addEventListener('submit', async function(e) {
 
   const dados = { nome, email, telefone, servico, mensagem };
 
-
-
-
-
-
   try {
     const resposta = await fetch('/api/servicos/submit-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados)
     });
-
-
-
 
     const resultado = await resposta.json();
 
