@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../config/db'); // Certifique-se de que este caminho está correto
 
 // POST /api/servicos/submit-form - Salvar dados do formulário
-router.post('/submit-form', (req, res) => {
+router.post('/api/servicos/submit-form-form', (req, res) => {
     const { nome, email, telefone, servico, mensagem } = req.body;
 
     if (!nome || !email || !telefone || !servico || !mensagem) {
