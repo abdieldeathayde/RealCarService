@@ -27,8 +27,7 @@
 
 A landing page estará disponível em:
 
-- [Vercel](https://realcarservice.vercel.app) (exemplo)
-- ou [GitHub Pages](https://abdieldeathayde.github.io/RealCarService)
+[- [Render] (https://realcarservice.onrender.com/)]
 
 ---
 
