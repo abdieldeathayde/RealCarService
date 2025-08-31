@@ -4,11 +4,11 @@ const router = express.Router();
 const db = require('../config/db');
 
 router.post('/submit-form', async (req, res) => {
-  const { nome, email, telefone, mensagem } = req.body;
+  const { nome, email, telefone, servico, mensagem } = req.body;
 
   try {
     const [result] = await db.query(
-      'INSERT INTO servicos (nome, email, telefone, mensagem) VALUES (?, ?, ?, ?)',
+      'INSERT INTO realcarservice nome, email, telefone, servico, mensagem) VALUES (?, ?, ?, ?)',
       [nome, email, telefone, mensagem]
     );
     res.status(200).json({ success: true, id: result.insertId });
