@@ -1,6 +1,4 @@
-
-// Carrega variáveis de ambiente do arquivo .env
-require('dotenv').config();
+// config/db.js
 const mysql = require('mysql2');
 
 const pool = mysql.createPool({
