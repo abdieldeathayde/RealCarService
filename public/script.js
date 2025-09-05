@@ -41,6 +41,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Envio do formulário principal para o backend
+// ...existing code...
+
 const form = document.getElementById('formulario');
 
 form?.addEventListener('submit', async function(e) {
@@ -59,31 +61,34 @@ form?.addEventListener('submit', async function(e) {
 
   const dados = { nome, email, telefone, servico, mensagem };
 
-
-
-
-
-
-  try {
-    const resposta = await fetch('/api/servicos/submit-form', {
+    try {
+    const resposta = await fetch('/servicos/submit-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados)
     });
 
+        const contentType = resposta.headers.get('content-type');
+        let resultado = {};
+        if (contentType && contentType.includes('application/json')) {
+            resultado = await resposta.json();
+        } else {
+            const texto = await resposta.text();
+            console.error('Resposta inesperada do servidor:', texto);
+            alert('Erro inesperado do servidor. Verifique a URL e o backend.');
+            return;
+        }
 
-
-
-    const resultado = await resposta.json();
-
-    if (resposta.ok) {
-        alert(resultado.mensagem || 'Dados enviados com sucesso!');
-        form.reset();
-    } else {
-        alert(resultado.erro || 'Erro ao enviar os dados.');
-    }
+        if (resposta.ok) {
+                alert(resultado.mensagem || 'Dados enviados com sucesso!');
+                form.reset();
+        } else {
+                alert(resultado.erro || 'Erro ao enviar os dados.');
+        }
     } catch (err) {
     console.error('Erro no envio:', err);
     alert('Erro ao enviar o formulário. Tente novamente.');
-    }
+    
+  } 
+  
 });
