@@ -71,7 +71,14 @@ form?.addEventListener('submit', async function(e) {
         const contentType = resposta.headers.get('content-type');
         let resultado = {};
         if (contentType && contentType.includes('application/json')) {
-            resultado = await resposta.json();
+            try {
+                resultado = await resposta.json();
+            } catch (jsonErr) {
+                const texto = await resposta.text();
+                console.error('Resposta inesperada do servidor:', texto);
+                alert('Erro inesperado do servidor. Verifique a URL e o backend.');
+                return;
+            }
         } else {
             const texto = await resposta.text();
             console.error('Resposta inesperada do servidor:', texto);
@@ -80,10 +87,10 @@ form?.addEventListener('submit', async function(e) {
         }
 
         if (resposta.ok) {
-                alert(resultado.mensagem || 'Dados enviados com sucesso!');
-                form.reset();
+            alert(resultado.mensagem || 'Dados enviados com sucesso!');
+            form.reset();
         } else {
-                alert(resultado.erro || 'Erro ao enviar os dados.');
+            alert(resultado.erro || 'Erro ao enviar os dados.');
         }
     } catch (err) {
     console.error('Erro no envio:', err);
