@@ -2,15 +2,13 @@
 const mysql = require('mysql2');
 
 const pool = mysql.createPool({
-  host: "tramway.proxy.rlwy.net",
-  user: "root",
-  password: "KCchXIbdAFNMwPvXxFVZjdRmETTvnAGO",
-  database: "railway",
-  port: 36360,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+  host: process.env.DB_HOST,     // tramway.proxy.rlwy.net
+  port: process.env.DB_PORT,     // 36360
+  user: process.env.DB_USER,     // root
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME, // railway
 });
+
 
 module.exports = pool.promise(); // Para usar async/await
 "
