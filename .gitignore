@@ -1,1 +1,14 @@
-config\db.js
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+
+
+# OS/files
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
